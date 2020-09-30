@@ -3,7 +3,8 @@
 <body>
 
 <br>
-
+  <div class="jumbotron">
+    <div class="container">
 <div class="container">
   <form  method="POST" action="docreate.php">
   <div class="md-form">
@@ -13,7 +14,9 @@
   <div class="md-form">
   <textarea name="cuerpo" style="width: 100%;resize: none;background-color: transparent" placeholder=" Escribe el mensaje" required></textarea>
   </div>
-  <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Enviar</button>
+  <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Crear</button>
     </form>
+  </div>
+  </div>
   </div>
 </body>

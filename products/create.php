@@ -9,7 +9,9 @@
 
 ?>
 <body>
-
+<br>
+  <div class="jumbotron">
+    <div class="container">
 <br>
 
 <div class="container">
@@ -21,9 +23,11 @@
   <div class="md-form">
   <input type="file" name="file[]" multiple>
   </div>
-  <input type="number" name="precio" class="form-control" required="true" placeholder="Escribe el precio" minlength="4"></div>
+  <input type="number" name="precio" class="form-control" required="true" placeholder="Escribe el precio" minlength="4">
 
-  <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Enviar</button>
+  <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Crear</button>
     </form>
+</div>
+  </div>
   </div>
 </body>

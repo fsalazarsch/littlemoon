@@ -14,7 +14,8 @@
  ?>
 
 <body>
-
+  <div class="jumbotron">
+    <div class="container">
 <br>
 
 <div class="container"> 
@@ -41,5 +42,7 @@
 
   <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Enviar</button>
     </form>
+  </div>
+  </div>
   </div>
 </body>

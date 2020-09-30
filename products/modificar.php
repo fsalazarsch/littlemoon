@@ -14,7 +14,9 @@
 <body>
 
 <br>
-
+  <div class="jumbotron">
+    <div class="container">
+<br>
 <div class="container"> 
   <form  enctype="multipart/form-data" accept="image/x-png" method="POST" action="domodify.php">
     <input type="hidden" id="id" name="id" value="<?php echo $producto["product_id"]; ?>">
@@ -25,9 +27,11 @@
   <div class="md-form">
   <input type="file" name="image" multiple>
   </div>
-  <input type="text" name="descripcion" class="form-control" required="true" placeholder="Escribe la descripcion" minlength="4" value="<?php echo $producto["product_description"]; ?>"></div>
-  
+    <input type="number" name="precio" class="form-control" required="true" placeholder="Escribe el precio" minlength="4">
   <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Enviar</button>
     </form>
   </div>
+  </div>
+  </div>
+
 </body>

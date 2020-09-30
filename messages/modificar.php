@@ -13,8 +13,8 @@
 <body>
 
 <br>
-
-<div class="container">
+  <div class="jumbotron">
+    <div class="container">
   <form  method="POST" action="domodify.php">
   <div class="md-form">
 
@@ -28,5 +28,6 @@
   </div>
   <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Modificar</button>
     </form>
+  </div>
   </div>
 </body>

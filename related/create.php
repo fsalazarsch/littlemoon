@@ -11,6 +11,7 @@
 
 <br>
 
+<div class="jumbotron">
 <div class="container">
   <form  method="POST" action="docreate.php">
     <div class="form-group">
@@ -35,7 +36,9 @@
     </select>
   </div>
 
-  <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Enviar</button>
+  <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Guardar</button>
     </form>
   </div>
+  </div>
+
 </body>
