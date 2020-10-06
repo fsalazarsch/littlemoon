@@ -1,5 +1,6 @@
-<?php include "../config/header.php" ?>
-
+<?php include "../config/header.php"
+  if (isset($_SESSION["user_id"])){
+  ?>
 <body>
 
 <br>
@@ -20,3 +21,9 @@
   </div>
   </div>
 </body>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

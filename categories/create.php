@@ -7,6 +7,9 @@
   $sql = "SELECT * FROM categories ORDER BY category_id";
   $categorias = $conn->query($sql);
 
+  if (isset($_SESSION["user_id"])){
+  ?>
+
 ?>
 <body>
   <div class="jumbotron">
@@ -40,3 +43,9 @@
 </div>
 </div>
 </body>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

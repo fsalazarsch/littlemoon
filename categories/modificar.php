@@ -11,6 +11,8 @@
   $sql = "SELECT * FROM categories";
   $categorias = $conn->query($sql);
 
+  if (isset($_SESSION["user_id"])){
+
  ?>
 
 <body>
@@ -46,3 +48,9 @@
   </div>
   </div>
 </body>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

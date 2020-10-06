@@ -1,4 +1,5 @@
 <?php
+
   include '../config/header.php';
   include '../config/conneccion.php';
 
@@ -7,7 +8,9 @@
   $sql = "SELECT * FROM categories ORDER BY category_id";
   $mensajes = $conn->query($sql);
 
-?>
+
+  if (isset($_SESSION["user_id"])){
+  ?>
   <div class="jumbotron">
     <div class="container">
 <br>
@@ -30,7 +33,11 @@
       echo '<th scope="row">'.$item['category_id'].'</th>';
       echo '<td>'.$item['category_name'].'</td>';
       echo '<td>'.$item['category_description'].'</td>';
+      if (isset($item['category_parent_id']))
       echo '<td>'.$item['category_parent_id'].'</td>';
+      else
+      echo '<td>---</td>';
+
       echo '<td><img style="width:50%" src="../resources/categories/'.$item['category_id'].'.png"></td>';
       echo '<td><a class= "btn btn-success" href="./ver.php?id='.$item['category_id'].'"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
@@ -59,3 +66,9 @@
 </script>
 </div>
 </div>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

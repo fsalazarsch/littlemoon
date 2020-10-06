@@ -4,19 +4,20 @@
 	$db = new Database();
 	$conn = $db->connect();
 
+	if (isset($_SESSION["user_id"])){
 
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
 
-	$db = new Database();
-	$conn = $db->connect();
-	
-	$sql = "DELETE FROM messages WHERE message_id=?";
+		$db = new Database();
+		$conn = $db->connect();
+		
+		$sql = "DELETE FROM messages WHERE message_id=?";
 
-	$sentencia = $conn->prepare($sql);
-  	$sentencia->bind_param("s", $_POST['id']);
-  	$sentencia->execute();
-
+		$sentencia = $conn->prepare($sql);
+	  	$sentencia->bind_param("s", $_POST['id']);
+	  	$sentencia->execute();
+	}
 
  ?>

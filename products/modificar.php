@@ -8,6 +8,7 @@
   $sql = "SELECT * FROM products Where product_id = ".$_GET['id'];
   $producto = $conn->query($sql)->fetch_assoc();
 
+  if (isset($_SESSION["user_id"])){
 
  ?>
 
@@ -35,3 +36,9 @@
   </div>
 
 </body>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

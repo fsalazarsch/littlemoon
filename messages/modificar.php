@@ -8,6 +8,7 @@
   $sql = "SELECT * FROM messages Where message_id = ".$_GET['id'];
   $mensaje = $conn->query($sql)->fetch_assoc();
 
+  if (isset($_SESSION["user_id"])){
  ?>
 
 <body>
@@ -31,3 +32,9 @@
   </div>
   </div>
 </body>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

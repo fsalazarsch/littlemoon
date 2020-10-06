@@ -7,6 +7,8 @@
   $sql = "SELECT * FROM messages ORDER BY message_id";
   $mensajes = $conn->query($sql);
 
+  if (isset($_SESSION["user_id"])){
+
 ?>
   <div class="jumbotron">
     <div class="container">
@@ -54,3 +56,9 @@
 </script>
 </div>
 </div>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

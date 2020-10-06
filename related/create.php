@@ -6,6 +6,8 @@
   $conn = $db->connect();
   $sql = "SELECT * FROM products ORDER BY product_id";
   $productos = $conn->query($sql);
+    if (isset($_SESSION["user_id"])){
+
 ?>
 <body>
 
@@ -42,3 +44,9 @@
   </div>
 
 </body>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>

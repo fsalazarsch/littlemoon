@@ -3,6 +3,8 @@
   include '../config/header.php';
   include '../config/conneccion.php';
 
+    if (isset($_SESSION["user_id"])){
+
   $db = new Database();
   $conn = $db->connect();
   $sql = "SELECT * FROM categories Where category_id = ".$_GET['id'];
@@ -36,3 +38,9 @@
   </div>
   </div>
 </body>
+<?php
+}
+else
+ header('Location: /littlemoon/');
+
+?>
