@@ -5,12 +5,13 @@
 	$db = new Database();
 	$conn = $db->connect();
 
-
-
 	if (isset($_FILES["file"])){
-		$dirsub = "../resources/products";
-		$tmp_name = $_FILES["file"]["tmp_name"];
-		move_uploaded_file($tmp_name, $dirsub."/".$_POST['id'].".png"); 
+		for ($i=0; $i<7; $i++){
+			$dirsub = "../resources/products";
+			$tmp_name = $_FILES['file']['tmp_name'][$i];
+			move_uploaded_file($tmp_name, $dirsub."/".$_POST['id']."_".($i+1).".png"); 
+		}
+
 	}
 
 

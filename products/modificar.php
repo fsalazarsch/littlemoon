@@ -26,7 +26,11 @@
   <div class="md-form">
   <input type="text" name="descripcion" class="form-control" required="true" placeholder="Escribe la descripcion" minlength="4" value="<?php echo $producto["product_description"]; ?>"></div>
   <div class="md-form">
-  <input type="file" name="image" multiple>
+  <?php
+  for( $i=1; $i< 8; $i++){
+  ?>
+  <input type="file" name="image_<?php echo $i?>"><img src="../resources/products/<?php echo $producto['product_id'].'_'.$i ?>.png" style="width: 10%; "  onerror="this.style.display='none'">
+  <?php }?>
   </div>
     <input type="number" name="precio" class="form-control" required="true" placeholder="Escribe el precio" minlength="4">
   <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Enviar</button>
