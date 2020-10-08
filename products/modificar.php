@@ -32,7 +32,7 @@
   <input type="file" name="image_<?php echo $i?>"><img src="../resources/products/<?php echo $producto['product_id'].'_'.$i ?>.png" style="width: 10%; "  onerror="this.style.display='none'">
   <?php }?>
   </div>
-    <input type="number" name="precio" class="form-control" required="true" placeholder="Escribe el precio" minlength="4">
+    <input type="number" name="precio" class="form-control" required="true" placeholder="Escribe el precio" minlength="4" value="<?php echo $producto["product_price"]; ?>">
   <button id="submitButton" type="submit"  name="submit" class="btn btn-primary boton">Enviar</button>
     </form>
   </div>

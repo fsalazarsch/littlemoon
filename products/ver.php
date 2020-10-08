@@ -25,7 +25,6 @@
   $sql = "SELECT * FROM products Where product_id IN (".implode($items).")";
   $productos_relacionados = $conn->query($sql);  
 
-  if (isset($_SESSION["user_id"])){
 
  ?>
 
@@ -119,9 +118,3 @@ border-radius: 2px; }
   </div>
   </div>
 </body>
-<?php
-}
-else
- header('Location: /littlemoon/');
-
-?>

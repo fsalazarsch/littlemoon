@@ -1,4 +1,15 @@
-  <?php include './config/header.php' ?>;
+  <?php include './config/header.php';
+
+  include './config/conneccion.php';
+
+  $db = new Database();
+  $conn = $db->connect();
+  $sql = "SELECT * FROM categories ORDER BY category_id";
+  $categorias = $conn->query($sql);
+  $sql = "SELECT * FROM products ORDER BY product_id";
+  $productos = $conn->query($sql);
+
+  ?>;
   <body style=" background-color: #e9ecef;">
 
 <main role="main">
@@ -6,35 +17,47 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Hello, world!</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-    </div>
-  </div>
 
-  <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-      </div>
+      <?php
+      foreach ($categorias as $item) {
+      echo '<div class="col-md-3">';
+
+      echo "<h2>".$item['category_name']."</h2>";
+      echo '<p>'.$item['category_description'].'<br/><img style="width:50%" src="/littlemoon/resources/categories/'.$item['category_id'].'.png"></p>';
+      echo '<a class="btn btn-secondary" href="/littlemoon/categories/ver.php?id='.$item['category_id'].'" role="button">Ver mas &raquo;</a></p>';
+      echo "</div>";
+      }
+      ?>
     </div>
 
     <hr>
 
-  </div> <!-- /container -->
+    <div class="row">
+      <?php
+      $index =0;
+      foreach ($productos as $item) {
+      
+      if($index %4 ==0){
+        echo '</div><div class="row">';
+
+      }
+
+      echo '<div class="col-md-3">';
+
+      echo "<h2>".$item['product_name']."</h2>";
+      echo '<p>'.$item['product_description'].'<br/><img style="width:50%" src="/littlemoon/resources/products/'.$item['product_id'].'_1.png"></p>';
+      echo '<a class="btn btn-secondary" href="/littlemoon/products/ver.php?id='.$item['product_id'].'" role="button">Ver mas &raquo;</a></p>';
+      echo "</div>";
+
+      $index += 1;
+      }
+      ?>
+    </div>
+
+    </div>
+  </div>
 
 </main>
 
